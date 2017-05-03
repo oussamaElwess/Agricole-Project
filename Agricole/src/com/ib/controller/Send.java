@@ -1,6 +1,8 @@
 package com.ib.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,11 +37,29 @@ public class Send extends HttpServlet {
 		
 		User user = (User) session.getAttribute("user");
 		
+		int idOperation = Integer.parseInt(request.getParameter("IdOperation"));
+		
+		int msg_to = 0;
+		
+		List<Message> msgs= BddConnect.findMsg(user.getPerson_id());
+		
+		request.setAttribute("msgs", msgs);
+		
+			for (Message msg : msgs) {
+		 			
+		 		if((msg.getMsg_id() == idOperation )) {
+				 	 				
+		 			msg_to = msg.getMsg_from();
+		 				
+		 		
+		 		}
+		 	}
+			
 		Message msg = new Message();
 		
 		msg.setMsg_content(request.getParameter("msg"));
-		msg.setMsg_from(1);
-		msg.setMsg_to(user.getPerson_advisor_id());
+		msg.setMsg_from(user.getPerson_id());
+		msg.setMsg_to(msg_to);
 		//msg.setMsg_to(Integer.parseInt(request.getParameter("IdConseiller")));
 		BddConnect.ajoutMsg(msg);
 		

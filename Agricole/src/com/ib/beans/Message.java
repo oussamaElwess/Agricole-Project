@@ -8,6 +8,7 @@ private String msg_content;
 private int msg_from;
 private int msg_to;
 private Timestamp msg_created;
+
 public int getMsg_id() {
 	return msg_id;
 }

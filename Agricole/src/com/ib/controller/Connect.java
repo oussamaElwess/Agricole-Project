@@ -58,6 +58,8 @@ public class Connect extends HttpServlet {
 					
 					List<Operations> operations=  BddConnect.findOperation(client.getPerson_id());
 					
+					session.setAttribute("operations", operations);
+					
 					for (Operations operations2 : operations) {
 						
 						if(operations2.getOpe_dispute() >0){

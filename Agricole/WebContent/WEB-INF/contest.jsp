@@ -21,7 +21,6 @@
 
 </tr>
 <c:forEach items="${msgs}" var="msg">
-
 <tr>
 	 <td>
 	 ${msg.getMsg_id()}
@@ -41,9 +40,13 @@
  </tr>
 </c:forEach>
 </table>
-<h1> Contestation</h1>
+
+
+
+
+<h1> Envoyer un message : </h1>
 	<form method="get" action="/Agricole/Send">
-		IdOperation <input type="text" name="IdOperation"/>
+		Id du message auquel vous répondez : <input type="text" name="IdOperation"/>
 		Message <input type="text" name="msg"/>
 	 	<input type="submit" value="Contester"/>
 	</form>

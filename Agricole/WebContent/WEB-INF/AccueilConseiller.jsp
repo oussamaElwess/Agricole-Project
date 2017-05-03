@@ -17,7 +17,7 @@
 
 <br/>
 
-<h2>Conseiller n°${user.getPerson_advisor_id()} - ${user.getPerson_firstname()} ${user.getPerson_lastname()}</h1>
+<h2>Conseiller n°${user.getPerson_id()} - ${user.getPerson_firstname()} ${user.getPerson_lastname()}</h1>
 
 <div>Nombre de contestation : ${ nb_op_contested }</div>
 
@@ -70,7 +70,7 @@
 
 <a href="/Agricole/EditConseiller"><input type="button" value="Editer informations client"></a>
 
-<a href="/Agricole/Contest"><input type="button" value="Voir contestations"></a>
+<a href="/Agricole/Contest"><input type="button" value="Voir mes messages"></a>
 
 <a href="/Agricole/AjoutCompte"><input type="button" value="Ajouter un compte"></a>
 

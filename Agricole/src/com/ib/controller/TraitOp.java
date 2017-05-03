@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ib.metier.BddConnect;
 import com.ib.beans.Operations;
+import com.ib.beans.User;
 
 /**
  * Servlet implementation class TraitOp
@@ -31,10 +33,16 @@ public class TraitOp extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//HttpSession session=request.getSession();
-		//session.getAttribute("user");
-		List<Operations> operations = BddConnect.findOperation(1);
-		request.setAttribute("operations", operations);
+				
+		HttpSession session=request.getSession();
+		
+		
+		User user = (User) session.getAttribute("user");
+				
+		List<Operations> operations =  BddConnect.findOperation(user.getPerson_id());
+				
+		session.setAttribute("operations", operations);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Operation.jsp").forward(request, response);
 	}
 

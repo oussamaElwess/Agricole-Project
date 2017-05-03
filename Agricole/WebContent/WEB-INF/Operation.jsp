@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <jsp:useBean id="user" scope="session" class="com.ib.beans.User"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -9,7 +10,7 @@
 <title>Operations</title>
 </head>
 <body>
-<h1> Listes des operation pour le client 1</h1>
+<h1> Listes des operation pour ${user.getPerson_firstname()} ${user.getPerson_lastname()}</h1>
 <table border="1">
 <tr>
 <th>Id Operation</th>

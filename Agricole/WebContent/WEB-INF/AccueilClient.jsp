@@ -54,6 +54,8 @@
 
 <a href="/Agricole/TraitOp"><input type="button" value="Voir opérations"></a>
 
+<a href="/Agricole/AjoutOperation"><input type="button" value="Ajouter une opération"></a>
+
 </p> 
 
 <p><a href="/Agricole/LogOut"><input type="button" value="Deconnexion"></a></p> 
